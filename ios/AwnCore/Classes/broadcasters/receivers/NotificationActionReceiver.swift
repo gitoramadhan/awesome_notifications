@@ -29,11 +29,14 @@ public class NotificationActionReceiver {
         fromResponse response: UNNotificationResponse,
         whenFinished completionHandler: @escaping (Bool, Error?) -> Void
     ) throws {
-     
+
+
         var userText:String?
         if let textResponse = response as? UNTextInputNotificationResponse {
             userText =  textResponse.userText
         }
+
+        print(response)
         
         var notificationModel:NotificationModel? = nil
         
@@ -62,7 +65,7 @@ public class NotificationActionReceiver {
                     .createNewAwesomeException(
                         className: TAG,
                         code: ExceptionCode.CODE_INVALID_ARGUMENTS,
-                        message: "The action content doesn't contain any awesome information",
+                        message: "The action content doesn't contain any awesome information" ,
                         detailedCode: ExceptionCode.DETAILED_INVALID_ARGUMENTS + ".addNewActionEvent.jsonData")
             }
             
