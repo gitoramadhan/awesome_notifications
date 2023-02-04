@@ -35,7 +35,7 @@ public class NotificationActionReceiver {
         if let textResponse = response as? UNTextInputNotificationResponse {
             userText =  textResponse.userText
         }
-
+        Logger.d(TAG, "addNewActionEvent - New push notification received")
         print(response)
         
         var notificationModel:NotificationModel? = nil
