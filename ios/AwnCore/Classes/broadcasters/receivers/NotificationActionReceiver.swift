@@ -31,11 +31,15 @@ public class NotificationActionReceiver {
     ) throws {
 
 
+        let userInfo = response.notification.request.content.userInfo
+        print(userInfo)
+
         var userText:String?
         if let textResponse = response as? UNTextInputNotificationResponse {
             userText =  textResponse.userText
         }
         Logger.d(TAG, "addNewActionEvent - New push notification received")
+        Logger.d(TAG, "addNewActionEvent - " +response )
         print(response)
         
         var notificationModel:NotificationModel? = nil
@@ -65,7 +69,7 @@ public class NotificationActionReceiver {
                     .createNewAwesomeException(
                         className: TAG,
                         code: ExceptionCode.CODE_INVALID_ARGUMENTS,
-                        message: "The action content doesn't contain any awesome information" ,
+                        message: "The action content doesn't contain gcm.message_id information" ,
                         detailedCode: ExceptionCode.DETAILED_INVALID_ARGUMENTS + ".addNewActionEvent.jsonData")
             }
             
@@ -78,7 +82,7 @@ public class NotificationActionReceiver {
                     .createNewAwesomeException(
                         className: TAG,
                         code: ExceptionCode.CODE_INVALID_ARGUMENTS,
-                        message: "The action content doesn't contain any awesome information",
+                        message: "The action content doesn't contain title or body information",
                         detailedCode: ExceptionCode.DETAILED_INVALID_ARGUMENTS + ".addNewActionEvent.jsonData")
             }
             
