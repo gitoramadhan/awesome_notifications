@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = 'awesome_notifications_rama'
+  s.name             = 'awesome_notifications'
   s.version          = '0.0.6'
   s.summary          = 'A complete solution to create Local Notifications and Push Notifications, through Firebase or another services, using Flutter.'
   s.description      = <<-DESC
